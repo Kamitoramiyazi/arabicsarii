@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ARABIC SARI</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #000000; /* Siyah arka plan */
+            font-family: Arial, sans-serif;
+            color: #FFD700;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(255,255,255,0.3);
+        }
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        img {
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+            display: block;
+        }
+        .overlay-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 215, 0, 0.7); /* Altın sarısı yarı şeffaf */
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .overlay-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            background-color: rgba(255, 215, 0, 0.9);
+        }
+        #playBtnLeft {
+            left: 10px;
+        }
+        #playBtnRight {
+            right: 10px;
+        }
+        audio {
+            margin-top: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+
+    <div class="image-container">
+        <img src="https://i.imgur.com/Ecg9dO5.jpeg" alt="Fotoğraf Açıklaması">
+        <button id="playBtnLeft" class="overlay-btn">Başlat</button>
+        <button id="playBtnRight" class="overlay-btn">Başlat</button>
+    </div>
+
+    <audio id="myAudio" loop>
+        <source src="https://archive.org/download/el-azhar-el-djihad/El%20Azhar%20-%20El%20Djihad.mp3" type="audio/mpeg">
+        Tarayıcınız audio etiketini desteklemiyor.
+    </audio>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById('myAudio');
+            audio.play();
+            document.getElementById('playBtnLeft').style.display = 'none';
+            document.getElementById('playBtnRight').style.display = 'none';
+        }
+
+        document.getElementById('playBtnLeft').addEventListener('click', playMusic);
+        document.getElementById('playBtnRight').addEventListener('click', playMusic);
+    </script>
+</body>
+</html>
